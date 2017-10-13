@@ -12,10 +12,13 @@ using namespace std;
 
 class Player {
 public:
-    Player(int m);
-    void bet(int m);
-    bool check() const;
-    Hand dealer_hand();
+    Player()
+    {
+        money = 100;
+    }
+    void bet(int m, bool result);
+    bool check_if_win() const;
+    bool check_if_lose() const;
     int get_money() const;
 
 private:

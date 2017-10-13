@@ -11,7 +11,7 @@ using namespace std;
 class Hand {
 public:
    // A vector of Cards
-   Hand(Card a);
+   Hand();
    void add_card(Card a);
    bool check_for_bust();
    double get_value() const;
@@ -24,4 +24,4 @@ private:
    double value;
 };
 
-#endif
+#endif 
