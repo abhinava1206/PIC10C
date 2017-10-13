@@ -106,7 +106,7 @@ int main() {
         Hand player_hand, dealer_hand;
         player_prompts(user, player_hand);
         dealer_prompts(dealer_hand);
-        OutputFile << "------------------------------------------------" << endl << endl;
+        OutputFile << "---------------------------------------------------" << endl << endl;
         OutputFile << "Game number: " << game_count << "        Money left: " << user.get_money() << endl; // writes to gamelog file
         OutputFile << "Bet: " << bet << endl << endl;
         OutputFile << "Your cards:" << endl;
@@ -119,7 +119,7 @@ int main() {
         int result = get_result(player_hand.get_value(), dealer_hand.get_value()); // to determine the result of the round
         if (result == 2) { // win
             user.bet(bet, result);
-            cout << "You win " << bet << "." << endl;
+            cout << "You win " << bet << "." << endl; 
 
 
         }
@@ -128,7 +128,7 @@ int main() {
             cout << "Too bad. You lose " << bet << "." << endl;
         }
         else if (result == 1) { // tie
-            cout << "Nobody wins!";
+            cout << "Nobody wins!" << endl;
         }
         if (user.check_if_lose()) { // checks if the user has lost
             cout << "You have $0. GAME OVER!" << endl << "Come back when you have more money." << endl << endl <<  "BYE!" << endl;;
