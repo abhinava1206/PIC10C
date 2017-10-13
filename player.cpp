@@ -27,12 +27,12 @@ int Player:: get_money() const {
 }
 
 
-void Player:: bet (int m, bool result) {
-    if (result == true)
+void Player:: bet (int m, int result) {
+    if (result == 2)
     {
         money += m;
     }
-    else 
+    else if (result == 0)
     {
         money -= m;
     }

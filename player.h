@@ -16,7 +16,7 @@ public:
     {
         money = 100;
     }
-    void bet(int m, bool result);
+    void bet(int m, int result);
     bool check_if_win() const;
     bool check_if_lose() const;
     int get_money() const;

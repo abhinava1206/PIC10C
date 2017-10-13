@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
+#include <iomanip>
 
 /* 
 You might or might not need these two extra libraries 
@@ -200,5 +201,5 @@ double Card::get_value() const {
 }
 
 void Card:: print_card() const {
-    cout << this->get_spanish_rank() << " de " << this->get_spanish_suit() << " (" << this->get_english_rank() << " of " << this->get_english_suit() << ")" << endl;
+    cout << "       " << this->get_spanish_rank() << " de " << this->get_spanish_suit() << setw(8) << "(" << this->get_english_rank() << " of " << this->get_english_suit() << ")." << endl;
 }
