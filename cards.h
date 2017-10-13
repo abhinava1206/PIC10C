@@ -7,6 +7,10 @@
    #include <string>
    #include <vector>
    #include <fstream>
+   #include <iomanip>
+   #include <ctime>
+   #include <cstdlib>
+
 
    #ifndef CARDS_H
    #define CARDS_H
@@ -60,5 +64,46 @@
          suit_t suit;
          rank_t rank;
    };
+
+/****************************
+ @class Hand
+ @brief
+ This class is made to store hands in siete y medio as a vector of the card class
+******************************/
+   class Hand {
+public:
+   Hand(); // default constructor
+   void add_card(Card a); // adds a card to the hand
+   bool check_for_bust(); // checks if the hand has busted
+   double get_value() const; // accessor 
+    void print_hand() const; 
+
+
+private:
+   vector<Card> cards_in_hand; // A vector of Cards
+   double value;
+};
+
+
+/**********************
+@Class Player
+@Brief
+This class stores the amount of money the player has and updates it based on the success of his bets against the dealer 
+***********************/
+class Player {
+public:
+    Player() // Default constructor
+    {
+        money = 100;
+    }
+    void bet(int m, int result); // Mutator: updates the player's wallet based on the success of his bet
+    bool check_if_win() const; // Checks if the player has beaten the casino
+    bool check_if_lose() const; // Checks if the player is broke
+    int get_money() const; // Accessor: returns the remaining money the player has
+
+private:
+   int money;
+};
+
 
    #endif 

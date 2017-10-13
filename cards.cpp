@@ -4,13 +4,6 @@
 #include <ctime>
 #include <iomanip>
 
-/* 
-You might or might not need these two extra libraries 
-#include <iomanip>
-#include <algorithm>
-*/
-
-
 /* *************************************************
    Card class
    ************************************************* */
@@ -174,6 +167,8 @@ bool Card::operator < (Card card2) const {
    return rank < card2.rank;
 }
 
+// Accessot function
+// Returns the value of each card in terms of points
 double Card::get_value() const {
     switch (rank) {
         case AS:
@@ -200,6 +195,112 @@ double Card::get_value() const {
     }
 }
 
+// Prints the card in Spanish and (English)
 void Card:: print_card() const {
     cout << "       " << this->get_spanish_rank() << " de " << this->get_spanish_suit() << setw(8) << "(" << this->get_english_rank() << " of " << this->get_english_suit() << ")." << endl;
+}
+
+
+
+/* *************************************************
+   Hand class
+   ************************************************* */
+
+/*
+Default constructor for Hand class
+Sets value to 0
+*/
+Hand:: Hand() {
+    value = 0;
+}
+
+/*
+Checks if the hand has busted or not
+Returns true if busted, false if not
+*/
+bool Hand:: check_for_bust() {
+    if (value > 7.5) {
+        return true;
+    }
+    else return false;
+}
+
+/*
+Accessor function
+Returns the value of the Hand in terms of points
+*/
+double Hand:: get_value() const {
+    return value;
+}
+
+/*
+Mutator: Adds a card to the Hand
+*/
+void Hand:: add_card(Card a) {
+    cards_in_hand.push_back(a); // Adds the card to the vector of cards
+    value = value + a.get_value(); // Increments the value variable 
+}
+
+/*
+Prints all the cards in the hand in Spanish and (English)
+*/
+void Hand:: print_hand() const {
+    for (int i = 0; i < cards_in_hand.size(); i++)
+    {
+        cout << "       " << cards_in_hand[i].get_spanish_rank() << " de " << cards_in_hand[i].get_spanish_suit() << setw(8) << " (" << cards_in_hand[i].get_english_rank() << " of " << cards_in_hand[i].get_english_suit() << ")." << endl;
+    }
+    return;
+}
+
+
+/* *************************************************
+   Player class
+   ************************************************* */
+
+/*
+Checks if the player has beaten the casino
+Returns true if income > 1000, false otherwise
+*/
+bool Player:: check_if_win() const {
+        if (money >= 1000)
+        {
+            return true;
+        }
+        else return false;
+}
+ 
+/*
+Checks if the player is broke
+Returns true if he is, false otherwise
+*/
+bool Player:: check_if_lose() const {
+        if (money == 0)
+        {
+            return true;
+        }
+        else return false;
+}
+ 
+/*
+Accessor: Gets the player's current balance
+Return money
+*/
+int Player:: get_money() const {
+        return money;
+}
+    
+/*
+Mutator: Modifies the player's balance based on the success of his bet
+*/    
+void Player:: bet (int m, int result) {
+    if (result == 2) // if he wins
+    {
+        money += m;
+    }
+    else if (result == 0) // if he loses
+    {
+        money -= m;
+    
+    }
+    // if he ties there is no change
 }
