@@ -15,6 +15,7 @@ public:
    void add_card(Card a);
    bool check_for_bust();
    double get_value() const;
+    void print_hand() const;
 
    // You decide what functions you'll need...
 
