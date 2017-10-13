@@ -10,4 +10,9 @@ The Player class keeps tabs of how much money the user has left. The function be
 
 ### Test Cases
 * Tried bet = 150. Expected result: Program exits. Actual result: Program exits with code (!)
-* Tried negative bet. Expected result: Input not accepted. Actual result: Worked (needs to be fixed)
+* Tried negative bet. Expected result: Input not accepted. Actual result: Worked (needs to be fixed). Update: fixed
+* Player busts. Expected result: Dealer wins. Actual result: Dealer wins.
+* Dealer busts, Player doesn't bust. Expected result: Player wins. Actual result: Player wins.
+* Neither busts. Expected result: Higher valued deck wins. Actual result: Higher valued deck wins.
+* Correct addition/ reduction of player's money. Expected result: Accurate reduction/addition of player's money. Actual result: success
+* Checking end of game condition. Expected result: Ends when money hits 0 or 1000. Actual result: success with correct output
