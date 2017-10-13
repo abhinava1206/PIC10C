@@ -19,7 +19,7 @@ void player_prompts(Player user, Hand &player_hand) {
     bool condition = true;
     cout << "You have $" << user.get_money() << ". Enter bet: "; // Prompts the user to make a bet
     cin >> bet; // Accepts input from the user
-    if (bet > user.get_money()) { // If the user cannot afford the bet
+    if (bet > user.get_money() || bet < 0) { // If the user cannot afford the bet
         cout << "You don't have enough money.";
         exit(1);
     }
