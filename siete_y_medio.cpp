@@ -107,7 +107,7 @@ int main() {
         player_prompts(user, player_hand);
         dealer_prompts(dealer_hand);
         OutputFile << "------------------------------------------------" << endl << endl;
-        OutputFile << "Game number: " << game_count << "        Money left: " << user.get_money() << endl;
+        OutputFile << "Game number: " << game_count << "        Money left: " << user.get_money() << endl; // writes to gamelog file
         OutputFile << "Bet: " << bet << endl << endl;
         OutputFile << "Your cards:" << endl;
         OutputFile << player_hand << endl;

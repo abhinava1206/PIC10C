@@ -305,11 +305,15 @@ void Player:: bet (int m, int result) {
     // if he ties there is no change
 }
 
+/*
+Overloaded operator <<
+Return ostream file with Hand written
+*/
 ostream& operator << (ostream& a, const Hand& hand)
 {
     for (int i = 0; i < hand.cards_in_hand.size(); i++)
     {
-        a << "       " << hand.cards_in_hand[i].get_spanish_rank() << " de " << hand.cards_in_hand[i].get_spanish_suit() << setw(8) << " (" << hand.cards_in_hand[i].get_english_rank() << " of " << hand.cards_in_hand[i].get_english_suit() << ")." << endl;
+        a << "       " << hand.cards_in_hand[i].get_spanish_rank() << " de " << hand.cards_in_hand[i].get_spanish_suit() << setw(8) << " (" << hand.cards_in_hand[i].get_english_rank() << " of " << hand.cards_in_hand[i].get_english_suit() << ")." << endl; // writes the Hand into the ostream file
     }
     return a;
 }
