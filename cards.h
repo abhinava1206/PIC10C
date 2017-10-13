@@ -77,6 +77,7 @@ public:
    bool check_for_bust(); // checks if the hand has busted
    double get_value() const; // accessor 
     void print_hand() const; 
+   friend ostream&  operator << (ostream& a, const Hand& hand);
 
 
 private:

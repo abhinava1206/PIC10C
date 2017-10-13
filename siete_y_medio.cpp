@@ -96,18 +96,32 @@ int get_result (double player_value, double dealer_value) {
     }
 }
 
-int main(){
+int main() {
+    ofstream OutputFile("gamelog.txt");
     srand(time(NULL)); // changes seed of the pseudorandom numbers
     Player user; // initializes player
     bool q = true;
+    int game_count = 1;
     while (q) { // Loops through until the player either wins or loses the game
         Hand player_hand, dealer_hand;
         player_prompts(user, player_hand);
         dealer_prompts(dealer_hand);
+        OutputFile << "------------------------------------------------" << endl << endl;
+        OutputFile << "Game number: " << game_count << "        Money left: " << user.get_money() << endl;
+        OutputFile << "Bet: " << bet << endl << endl;
+        OutputFile << "Your cards:" << endl;
+        OutputFile << player_hand << endl;
+        OutputFile << "Your total: " << player_hand.get_value() << endl << endl;
+        OutputFile << "Dealer's cards: " << endl;
+        OutputFile << dealer_hand << endl;
+        OutputFile << "Dealer's total is " << dealer_hand.get_value() << endl << endl;
+        game_count++;
         int result = get_result(player_hand.get_value(), dealer_hand.get_value()); // to determine the result of the round
         if (result == 2) { // win
             user.bet(bet, result);
             cout << "You win " << bet << "." << endl;
+
+
         }
         else if (result == 0) { // loss
             user.bet(bet, result);
